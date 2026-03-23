@@ -1,0 +1,25 @@
+# PHP standard ignores
+*.phpunit.result
+*.phar
+*.log
+*.cache
+*.idea/
+*.vscode/
+*.DS_Store
+
+# Composer
+/vendor/
+composer.lock
+
+# Laravel
+/storage/
+/public/hot
+/public/storage
+/.env
+
+# Node
+/node_modules/
+
+# Miscellaneous
+Thumbs.db
+.DS_Store
