@@ -1,0 +1,348 @@
+\* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    ), url("body.avif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+/* Flip Card Container */
+.flip-card-container {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped {
+    transform: rotateY(180deg);
+}
+
+form {
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(160, 120, 255, 0.3);
+    color: white;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+}
+
+.flip-card-front {
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.input_box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input_box i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input_box input,
+.input_box select {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input_box input:focus,
+.input_box select:focus {
+    background: white;
+    box-shadow: 0 0 10px rgba(160, 120, 255, 0.5);
+}
+
+.input_box input::placeholder {
+    color: #999;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+    width: auto;
+    padding: 0;
+}
+
+.remember_forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.remember_forgot label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.remember_forgot input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+    width: auto;
+    padding: 0;
+}
+
+.remember_forgot a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.remember_forgot a:hover {
+    text-decoration: underline;
+    color: #7b5cff;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #7b5cff, #9b7fff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #5b3cff, #7b5cff);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(123, 92, 255, 0.4);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.registerlink {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.registerlink a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.registerlink a:hover {
+    color: #7b5cff;
+    text-decoration: underline;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+.icon a,
+.icon div {
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.icon a:hover,
+.icon div:hover {
+    color: #7b5cff;
+    transform: scale(1.2);
+}
+
+/* Flip Button */
+.flip-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(123, 92, 255, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: none;
+}
+
+.flip-button:hover {
+    background: rgba(123, 92, 255, 1);
+    transform: scale(1.1) rotate(180deg);
+}
+
+.flip-card-container:hover .flip-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .input_box input,
+    .input_box select {
+        width: 100%;
+        padding: 10px 10px 10px 35px;
+    }
+
+    .icon {
+        gap: 30px;
+        font-size: 25px;
+    }
+
+    .button {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 320px;
+        padding: 25px 20px;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .input_box {
+        margin-bottom: 15px;
+    }
+
+    .input_box input,
+    .input_box select {
+        padding: 10px 10px 10px 30px;
+        font-size: 13px;
+    }
+
+    .remember_forgot {
+        font-size: 12px;
+    }
+
+    .icon {
+        gap: 25px;
+        font-size: 22px;
+    }
+
+    .button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .registerlink {
+        font-size: 12px;
+    }
+
+    .flip-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+/* Scrollbar Styling */
+.flip-card-back::-webkit-scrollbar {
+    width: 6px;
+}
+
+.flip-card-back::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.flip-card-back::-webkit-scrollbar-thumb {
+    background: rgba(123, 92, 255, 0.5);
+    border-radius: 3px;
+}
+
+.flip-card-back::-webkit-scrollbar-thumb:hover {
+    background: rgba(123, 92, 255, 0.8);
+}
